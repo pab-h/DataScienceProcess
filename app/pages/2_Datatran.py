@@ -31,11 +31,16 @@ O dataset utilizado é o Acidentes 2024 (Agrupados por pessoa - Todas as causas 
 """
 
 if "datatran" not in st.session_state:
-    datasetPath = os.path.join(
-        os.getcwd(),
-        "dataset",
-        "prf",
-        "acidentes2024_todas_causas_tipos.csv"
+
+    datasetPath = os.path.abspath(
+        os.path.join(
+            os.path.dirname(__file__), 
+            "..", 
+            "..", 
+            "dataset", 
+            "prf", 
+            "acidentes2024_todas_causas_tipos.csv"
+         )
     )
 
     datatran = pd.read_csv(

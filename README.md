@@ -37,3 +37,9 @@ pip install -r requirements.txt
 ```bash
 python scripts/downloadDatasets.py
 ```
+
+6. (opcional) Execute o dataapp
+
+```bash
+streamlit run app/index.py
+```

@@ -155,7 +155,7 @@ income_composition = st.slider("Income composition of resources", float(df["Inco
 schooling          = st.slider("Schooling", float(df["Schooling"].min()), float(df["Schooling"].max()), float(df["Schooling"].mean()))
 
 current_dir = os.path.dirname(__file__) 
-model_path  = os.path.abspath(os.path.join(current_dir, "..", "..", "notebooks", "modelo_regressao.joblib"))
+model_path  = os.path.abspath(os.path.join(current_dir, "..", "..", "models", "modelo_regressao.joblib"))
 modelo      = joblib.load(model_path)
 
 X_input = pd.DataFrame([[total_expenditure, hiv_aids, thinness_1_19, income_composition, schooling]],

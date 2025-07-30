@@ -61,7 +61,15 @@ datatran = st.session_state.datatran
 
 Uma explicação detalhada sobre cada coluna pode ser encontrada [aqui](https://www.gov.br/prf/pt-br/acesso-a-informacao/dados-abertos/dicionario-acidentes). Porém, destacaremos as utilizadas como entrada no classificador:
 
-- **ui**: cu
+* **Tipo Acidente**: Identificação do tipo de acidente. Exemplos: Colisão frontal, Saída de pista, etc.
+* **Classificação Acidente**: Classificação quanto à gravidade do acidente: Sem Vítimas, Com Vítimas Feridas, Com Vítimas Fatais e Ignorado.
+* **Fase Dia**: Fase do dia no momento do acidente. Exemplos: Amanhecer, Pleno dia, etc.
+* **Condição Meteorológica**: Condição do clima no momento do acidente. Exemplos: Céu claro, Chuva, Vento, etc.
+* **Tipo Pista**: Tipo da pista com base na quantidade de faixas. Exemplos: Dupla, Simples ou Múltipla.
+* **Uso Solo**: Descrição sobre as características do local do acidente. Exemplo: Urbano = Sim; Rural = Não.
+* **Tipo Veículo**: Tipo do veículo conforme o Art. 96 do Código de Trânsito Brasileiro. Exemplos: Automóvel, Caminhão, Motocicleta, etc.
+* **Tipo Envolvido**: Tipo de envolvido no acidente conforme sua participação. Exemplos: Condutor, Passageiro, Pedestre, etc.
+* **Estado Físico**: Condição do envolvido conforme a gravidade das lesões. Exemplos: Morto, Ferido leve, etc.
 
 """
 

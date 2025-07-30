@@ -77,17 +77,50 @@ Uma explicação detalhada sobre cada coluna pode ser encontrada [aqui](https://
 
 ### Análise gráfica do dataset 
 
-COLOCAR OS PLOTS GERADOS AQUI
-
-E O PLOT DE MAPA
-
-
 """
+
+figuresDir = os.path.abspath(
+    os.path.join(
+        os.path.dirname(__file__), 
+        "..", 
+        "..", 
+        "assets", 
+        "prf"
+        )
+    )
+
+figures = os.listdir(figuresDir)
+
+for figureName in figures:
+    figurePath = os.path.join(figuresDir, figureName)
+    st.image(
+        figurePath, 
+        caption             = figureName.split(".")[0], 
+        use_container_width = True
+    )
 
 """
 
 ## Resultados 
 
-Mostrar os desempenhos dos classificadores
-
 """
+
+figuresClassifierDir = os.path.abspath(
+    os.path.join(
+        os.path.dirname(__file__), 
+        "..", 
+        "..", 
+        "assets", 
+        "classifier"
+    )
+)
+
+figuresClassifier = os.listdir(figuresClassifierDir)
+
+for figureName in figuresClassifier:
+    figurePath = os.path.join(figuresClassifierDir, figureName)
+    st.image(
+        figurePath, 
+        caption             = figureName.split(".")[0], 
+        use_container_width = True
+    )

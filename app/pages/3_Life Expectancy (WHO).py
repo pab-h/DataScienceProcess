@@ -60,10 +60,12 @@ O objetivo do dataset é analisar quais fatores mais impactam a expectativa de v
 """
 
 if "life_df" not in st.session_state:
-    current_dir = os.path.dirname(__file__)
+    current_dir  = os.path.dirname(__file__)
     dataset_path = os.path.abspath(os.path.join(current_dir, "..", "..", "dataset", "life-expectancy", "Life Expectancy Data.csv"))
-    df = pd.read_csv(dataset_path)
+    
+    df         = pd.read_csv(dataset_path)
     df.columns = df.columns.str.strip() 
+    
     st.session_state.life_df = df
 
 df = st.session_state.life_df
@@ -76,7 +78,7 @@ st.dataframe(df.sample(10))
 """
 
 current_dir = os.path.dirname(__file__)
-figures_dir = os.path.abspath(os.path.join(current_dir, "..", "..", "figures", "lifeExpectancy"))
+figures_dir = os.path.abspath(os.path.join(current_dir, "..", "..", "assets", "lifeExpectancy"))
 
 figuras = [
     "highest-lowest-life-expectancy.png",
@@ -146,15 +148,15 @@ Vamos carregar o modelo treinado e testar uma previsão:
 
 st.subheader("Prever expectativa de vida")
 
-total_expenditure = st.slider("Total expenditure", float(df["Total expenditure"].min()), float(df["Total expenditure"].max()), float(df["Total expenditure"].mean()))
-hiv_aids = st.slider("HIV/AIDS", float(df["HIV/AIDS"].min()), float(df["HIV/AIDS"].max()), float(df["HIV/AIDS"].mean()))
-thinness_1_19 = st.slider("Thinness 1-19 years", float(df["thinness  1-19 years"].min()), float(df["thinness  1-19 years"].max()), float(df["thinness  1-19 years"].mean()))
+total_expenditure  = st.slider("Total expenditure", float(df["Total expenditure"].min()), float(df["Total expenditure"].max()), float(df["Total expenditure"].mean()))
+hiv_aids           = st.slider("HIV/AIDS", float(df["HIV/AIDS"].min()), float(df["HIV/AIDS"].max()), float(df["HIV/AIDS"].mean()))
+thinness_1_19      = st.slider("Thinness 1-19 years", float(df["thinness  1-19 years"].min()), float(df["thinness  1-19 years"].max()), float(df["thinness  1-19 years"].mean()))
 income_composition = st.slider("Income composition of resources", float(df["Income composition of resources"].min()), float(df["Income composition of resources"].max()), float(df["Income composition of resources"].mean()))
-schooling = st.slider("Schooling", float(df["Schooling"].min()), float(df["Schooling"].max()), float(df["Schooling"].mean()))
+schooling          = st.slider("Schooling", float(df["Schooling"].min()), float(df["Schooling"].max()), float(df["Schooling"].mean()))
 
 current_dir = os.path.dirname(__file__) 
-model_path = os.path.abspath(os.path.join(current_dir, "..", "..", "notebooks", "modelo_regressao.joblib"))
-modelo = joblib.load(model_path)
+model_path  = os.path.abspath(os.path.join(current_dir, "..", "..", "notebooks", "modelo_regressao.joblib"))
+modelo      = joblib.load(model_path)
 
 X_input = pd.DataFrame([[total_expenditure, hiv_aids, thinness_1_19, income_composition, schooling]],
                        columns=['Total expenditure', 'HIV/AIDS', 'thinness  1-19 years', 'Income composition of resources', 'Schooling'])

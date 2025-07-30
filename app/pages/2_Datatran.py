@@ -124,3 +124,12 @@ for figureName in figuresClassifier:
         caption             = figureName.split(".")[0], 
         use_container_width = True
     )
+
+
+"""
+
+## Modelo Online
+
+Vai ficar para a próxima =( 
+
+"""
